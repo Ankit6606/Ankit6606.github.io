@@ -1,4 +1,45 @@
-import { questions } from './questions.js';
+export const questions = [
+    "Will you travel with me in shuttle? 🚌",
+    "Wait... Will you *please* travel with me in shuttle? 🥺",
+    "I’ll get you window seat everyday... please say yes! 😢",
+    "No traffic, no stress — just us! Will you join me? 🚀",
+    "You’re breaking my heart 😭 Just say yes once!",
+    "Pretty please with extra ice cream? 🍦🍦",
+    "If you say no again, I might cry real tears 😭",
+    "Even Google Maps won't reroute me away from you 💔",
+    "I'll bring snacks every single ride... just say YES 🍫🍿",
+    "You’re the seatbelt to my ride — don’t leave me hanging! 🛻",
+    "Okay but what if I play your fav songs on loop? 🎶❤️",
+    "I'll protect you from all potholes and sudden brakes 🛡️😤",
+    "The shuttle will be incomplete without you 💔",
+    "Say yes and I’ll never forget your birthday... EVER 🎂😂",
+    "Imagine us vibing in traffic-free mornings 😌",
+    "Don’t be the reason I walk alone in this cruel world 🥲",
+    "Do it for the memes, the memories, and the munchies 📸🍟"
+    "Even my playlists miss having you in the shuttle! 🎧🥹",
+    "Not asking for forever… just one seat next to me today 💕",
+    "If we get late, I’ll take the blame. Pinky promise! 🤞",
+    "I’ll let you choose all the routes — even the scenic ones! 🗺️",
+    "The shuttle's AC is cold, but not colder than your NO 🥶💔",
+    "My seat feels so empty without you 😔",
+    "Even the driver asked, ‘Where’s your shuttle buddy?’ 🚌😳",
+    "I made space just for you — physically and emotionally 😅",
+    "This seat has your name written in my heart 💌",
+    "Roses are red, shuttles are cool... riding alone is just cruel 🥲",
+    "Every ride without you feels 100x longer 😩",
+    "I’ll carry your bag. I’ll carry your mood. Just come 😄👜",
+    "I won’t text anyone else if you say yes 🥺👉👈",
+    "The shuttle’s sad. I’m sad. Let’s fix this together 😞🚌❤️",
+    "Say yes now and I’ll make you a cup of tea every morning ☕❤️",
+    "Without you, the shuttle’s just a fast moving heartbreak 💘💔",
+    "Even ChatGPT said you should say yes 😤🤖",
+    "Do it for the seat selfies and weird sleepy faces 🤳💤",
+    "I asked the stars last night… they said YES 🌌⭐",
+    "One small yes from you = one giant leap for my happiness 🚀💖",
+    "You’ve unlocked the emotional damage level 🫠 — just say yes!",
+    "If you say no now, I’ll ask again tomorrow, and the next day 😅",
+    "Last time asking (but not really): Will you shuttle with me? 🙃"
+  ];
 
 let index = 0;
 
