@@ -15,7 +15,7 @@ export const questions = [
     "Say yes and I’ll never forget your birthday... EVER 🎂😂",
     "Imagine us vibing in traffic-free mornings 😌",
     "Don’t be the reason I walk alone in this cruel world 🥲",
-    "Do it for the memes, the memories, and the munchies 📸🍟"
+    "Do it for the memes, the memories, and the munchies 📸🍟",
     "Even my playlists miss having you in the shuttle! 🎧🥹",
     "Not asking for forever… just one seat next to me today 💕",
     "If we get late, I’ll take the blame. Pinky promise! 🤞",
