@@ -1,0 +1,195 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #fceabb, #f8b500);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    transition: background 2s ease;
+  }
+  
+  .container {
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: popUp 1s ease-in-out forwards;
+    max-width: 500px;
+  }
+  
+  .apology-text {
+    font-size: 24px;
+    margin: 20px 0;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+  
+  .apology-text:nth-child(2) {
+    animation-delay: 1s;
+  }
+  
+  .apology-text:nth-child(3) {
+    animation-delay: 2s;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes popUp {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .heart {
+    color: red;
+    font-size: 32px;
+    animation: pulse 1.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.3);
+    }
+  }
+  
+  .question {
+    font-size: 20px;
+    margin-top: 30px;
+    animation: fadeInUp 1s ease forwards;
+  }
+  
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .yes-btn {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .no-btn {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .click-btn {
+    background-color: #6200ea;
+    color: white;
+  }
+  
+  button:hover {
+    transform: scale(1.1);
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .final-screen {
+    font-size: 22px;
+    line-height: 1.6;
+    animation: fadeIn 2s ease forwards;
+  }
+  
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    animation: confettiFall 2s linear forwards;
+    opacity: 0.8;
+    border-radius: 2px;
+    z-index: 999;
+  }
+  
+  @keyframes confettiFall {
+    0% {
+      transform: translateY(0) rotate(0deg);
+    }
+    100% {
+      transform: translateY(600px) rotate(720deg);
+    }
+  }
+  
+  .floating-heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 24px;
+    color: #ff4d6d;
+    animation: floatUp linear;
+    z-index: 999;
+  }
+  
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100vh) scale(1.5);
+      opacity: 0;
+    }
+  }
+  
+  .animated-message {
+    animation: scaleIn 1s ease, glow 2s ease-in-out infinite alternate;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  }
+  
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff;
+    }
+    to {
+      text-shadow: 0 0 20px #ff4d6d, 0 0 30px #ff85a1;
+    }
+  }
+  
