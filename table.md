@@ -1,14 +1,6 @@
-| Task                 | Metric          | Value   |
-| :------------------- | :-------------- | :------ |
-| **Sentiment Analysis** | Accuracy        | `[0.92]`  |
-| *(3-Class)*          | F1-Score (Macro)| `[0.91]`  |
-|                      | Precision (Pos) | `[0.93]`  |
-|                      | Recall (Pos)    | `[0.94]`  |
-|                      | Precision (Neg) | `[0.94]`  |
-|                      | Recall (Neg)    | `[0.92]`  |
-|                      | Precision (Neu) | `[0.85]`  |
-|                      | Recall (Neu)    | `[0.87]`  |
-| **Spam Detection**   | Accuracy        | `[0.98]`  |
-| *(Binary)*           | F1-Score (Spam) | `[0.96]`  |
-|                      | Precision (Spam)| `[0.95]`  |
-|                      | Recall (Spam)   | `[0.97]`  |
+| Hardware     | Metric         | Batch Size | Value           | Unit         |
+| :----------- | :------------- | :--------- | :-------------- | :----------- |
+| CPU `[Model]`  | Avg. Latency   | 1          | `[95.5]`        | ms/instance  |
+|              | Throughput     | 32         | `[45.2]`        | instances/sec|
+| GPU `[Model]`  | Avg. Latency   | 1          | **`[8.1]`**     | ms/instance  |
+|              | Throughput     | 64         | `[1150.7]`      | instances/sec|
