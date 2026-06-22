@@ -1,21 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apology</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Saheli 💖</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    color: rgba(255, 77, 109, 0.7);
+    font-size: 20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% {transform: translateY(100vh) scale(1);}
+    100% {transform: translateY(-10vh) scale(1.5);}
+}
+
+/* Card */
+.card {
+    text-align: center;
+    background: rgba(255,255,255,0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    max-width: 500px;
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform: scale(0.8);}
+    to {opacity:1; transform: scale(1);}
+}
+
+h1 { color: #ff4d6d; }
+
+p {
+    font-size: 18px;
+    color: #444;
+    margin: 20px 0;
+}
+
+/* Buttons */
+button {
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#yesBtn {
+    background: #ff4d6d;
+    color: white;
+}
+
+#noBtn {
+    background: #ccc;
+    position: absolute;
+}
+
+/* Celebration */
+#celebration {
+    display: none;
+    font-size: 26px;
+    color: #ff4d6d;
+    margin-top: 20px;
+    animation: pop 1s ease infinite alternate;
+}
+
+@keyframes pop {
+    from {transform: scale(1);}
+    to {transform: scale(1.1);}
+}
+</style>
 </head>
+
 <body>
-  <div class="container" id="main">
-    <div class="apology-text">I’m truly sorry for being rude... 😔</div>
-    <div class="apology-text">You mean so much to me ❤️</div>
-    <div class="apology-text">Please forgive me — I’ll make it right 💫</div>
 
-    <button class="click-btn" id="startBtn">Talk to Me 💌</button>
-  </div>
+<!-- Background Music -->
+<audio id="music" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
 
-  <script src="script.js"></script>
+<div class="card">
+    <h1>Hey Saheli 💖</h1>
+
+    <p>
+        Excuse me, miss… 🌹<br><br>
+        I've been waiting for the perfect moment to ask you this.  
+        You’re truly something special… my ultimate diva ✨  
+        And it would mean the world to me to take you out on a beautiful date.  
+        <br><br>
+        So tell me, Saheli…  
+        <b>Will you go on a date with me? 💕</b>
+    </p>
+
+    <div>
+        <button id="yesBtn">Yes 💖</button>
+        <button id="noBtn">No 🙈</button>
+    </div>
+
+    <div id="celebration">
+        🎉 YAYYY!!! 💖<br>
+        Get ready for the best date ever 🌹✨
+    </div>
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const celebration = document.getElementById("celebration");
+const music = document.getElementById("music");
+
+/* Move NO button */
+function moveNo() {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+noBtn.addEventListener("mouseover", moveNo);
+noBtn.addEventListener("click", moveNo);
+
+/* YES click */
+yesBtn.addEventListener("click", () => {
+    celebration.style.display = "block";
+    music.play();
+});
+
+/* Floating hearts generator */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
 </body>
 </html>
