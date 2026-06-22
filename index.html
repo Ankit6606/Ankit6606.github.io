@@ -27,9 +27,7 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-h1 {
-    color: #ff4d6d;
-}
+h1 { color: #ff4d6d; }
 
 p {
     font-size: 16px;
@@ -38,9 +36,7 @@ p {
 }
 
 /* Buttons */
-.buttons {
-    margin-top: 20px;
-}
+.buttons { margin-top: 20px; }
 
 button {
     padding: 12px 20px;
@@ -77,6 +73,9 @@ button {
 
 #celebrationPage h1 {
     color: #ff4d6d;
+    font-size: 20px; /* smaller for mobile */
+    line-height: 1.6;
+    max-width: 90%;
 }
 
 /* Flowers */
@@ -129,9 +128,12 @@ let step = 0;
 const proposals = [
 "Okay maybe I was too formal 😅💖<br><br> Saheli, will you go on a cute little date with me? 🌹",
 "Still no? 🥺<br><br> What if I promise coffee, laughs, and a really nice time? ☕💕",
-"Alright… one more try 😌💖<br><br> I really want to take you out and make you smile… will you? 🌸",
-"Okay now I’m nervous 😳💘<br><br> Please say yes? 💖",
-"This is my final try 🥹💞<br><br> I’d genuinely love to spend time with you… will you give me a chance? 🌹✨"
+"How about this… 🍕<br><br> Pizza + long walk + me trying to impress you 😏💖",
+"Movie night? 🎬<br><br> I’ll bring popcorn and full attention just for you 💕",
+"Coffee + sunset? ☕🌇<br><br> Just you, me, and a beautiful vibe 💖",
+"Okay okay… final serious offer 😌💞<br><br> A day full of smiles, jokes, and good memories… with me? 🌸",
+"Now I’m nervous 😳💘<br><br> But I really want this… please say yes? 💖",
+"This is my FINAL FINAL try 🥹💞<br><br> I’d genuinely love to spend time with you… will you give me a chance? 🌹✨"
 ];
 
 noBtn.addEventListener("click", () => {
