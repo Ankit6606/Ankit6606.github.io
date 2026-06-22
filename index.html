@@ -1,35 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Saheli 💖</title>
-
-<style>
+<title>Date Proposal 💖</title><style>
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: Arial, sans-serif;
   text-align: center;
-  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-  overflow: hidden;
 }
 
 /* Main Page */
-.container {
+#mainPage {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 20px;
+  align-items: center;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
 }
 
-h1 {
-  font-size: 22px;
-  color: #fff;
-}
-
-.buttons {
-  margin-top: 20px;
+h2 {
+  margin-bottom: 20px;
+  padding: 0 20px;
 }
 
 button {
@@ -39,18 +31,20 @@ button {
   border-radius: 25px;
   font-size: 16px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-#yesBtn {
-  background: #ff4d6d;
+button:hover {
+  opacity: 0.9;
+}
+
+button:first-of-type {
+  background-color: #ff4d6d;
   color: white;
 }
 
 #noBtn {
-  background: #444;
+  background-color: #444;
   color: white;
-  position: absolute;
 }
 
 /* Final Page */
@@ -72,40 +66,63 @@ button {
 .final-content h1 {
   font-size: clamp(18px, 5vw, 28px);
   line-height: 1.4;
-  color: #fff;
+  color: white;
   max-width: 90%;
 }
 
-/* Flowers Animation */
-.flower {
-  position: absolute;
-  top: -50px;
-  font-size: 24px;
-  animation: fall linear infinite;
+/* Hide any accidental buttons in final page */
+#finalPage button {
+  display: none;
 }
 
-@keyframes fall {
-  to {
-    transform: translateY(110vh);
+/* Animation */
+.final-content {
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+</style></head><body><!-- MAIN PAGE --><div id="mainPage">
+  <h2 id="question">Will you go on a coffee date with me? ☕</h2><button onclick="handleYes()">Yes ❤️</button>
+<button onclick="handleNo()" id="noBtn">No 💔</button>
+
+</div><!-- FINAL PAGE --><div id="finalPage">
+  <div class="final-content">
+    <h1>
+      You just saved a 24 year kid by accepting his date offer 💖<br><br>
+      He is now at your service and ready to make your day special 🌸
+    </h1>
+  </div>
+</div><script>
+let step = 0;
+
+const questions = [
+  "Will you go on a coffee date with me? ☕",
+  "What about a dinner date? 🍽️",
+  "Movie night together? 🎬",
+  "Long drive with music? 🚗🎶",
+  "Ice cream date? 🍦",
+  "Sunset walk together? 🌇",
+  "Just one cute date? 🥺❤️",
+  "I promise I'll make you smile… will you go out with me? 💕",
+  "Last chance… will you make me the happiest? 💖"
+];
+
+function handleNo() {
+  if (step < questions.length - 1) {
+    step++;
+    document.getElementById("question").innerText = questions[step];
   }
 }
-</style>
-</head>
 
-<body>
-
-<div class="container" id="mainPage">
-  <h1 id="text">
-    Excuse me, miss... I've been waiting for this moment 💖<br><br>
-    It would truly be an honor to take my ultimate diva out for a date 🌹<br><br>
-    So Saheli... will you go on a date with me? 🥺
-  </h1>
-
-  <div class="buttons">
-    <button id="yesBtn">Yes 💖</button>
-    <button id="noBtn">No 😢</button>
-  </div>
-</div>
+function handleYes() {
+  document.getElementById("mainPage").style.display = "none";
+  document.getElementById("finalPage").style.display = "flex";
+}
+</script></body>
+</html></div>
 
 <div id="finalPage">
   <div class="final-content">
