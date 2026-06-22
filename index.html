@@ -17,19 +17,6 @@ body {
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
 }
 
-/* Floating hearts */
-.heart {
-    position: absolute;
-    color: rgba(255, 77, 109, 0.7);
-    font-size: 20px;
-    animation: float 6s linear infinite;
-}
-
-@keyframes float {
-    0% {transform: translateY(100vh) scale(1);}
-    100% {transform: translateY(-10vh) scale(1.5);}
-}
-
 /* Card */
 .card {
     text-align: center;
@@ -37,13 +24,7 @@ body {
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-    max-width: 500px;
-    animation: fadeIn 2s ease;
-}
-
-@keyframes fadeIn {
-    from {opacity:0; transform: scale(0.8);}
-    to {opacity:1; transform: scale(1);}
+    max-width: 520px;
 }
 
 h1 { color: #ff4d6d; }
@@ -51,7 +32,6 @@ h1 { color: #ff4d6d; }
 p {
     font-size: 18px;
     color: #444;
-    margin: 20px 0;
 }
 
 /* Buttons */
@@ -74,39 +54,128 @@ button {
     position: absolute;
 }
 
-/* Celebration */
-#celebration {
+/* Celebration Page */
+#celebrationPage {
     display: none;
-    font-size: 26px;
-    color: #ff4d6d;
-    margin-top: 20px;
-    animation: pop 1s ease infinite alternate;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
 }
 
-@keyframes pop {
-    from {transform: scale(1);}
-    to {transform: scale(1.1);}
+#celebrationPage h1 {
+    font-size: 28px;
+    color: #ff4d6d;
+    padding: 20px;
+}
+
+/* Flowers */
+.flower {
+    position: absolute;
+    font-size: 24px;
+    animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10vh); }
+    100% { transform: translateY(110vh); }
 }
 </style>
 </head>
 
 <body>
 
-<!-- Background Music -->
-<audio id="music" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
-</audio>
-
-<div class="card">
+<div class="card" id="mainCard">
     <h1>Hey Saheli 💖</h1>
 
-    <p>
-        Excuse me, miss… 🌹<br><br>
-        I've been waiting for the perfect moment to ask you this.  
-        You’re truly something special… my ultimate diva ✨  
-        And it would mean the world to me to take you out on a beautiful date.  
-        <br><br>
-        So tell me, Saheli…  
+    <p id="proposalText">
+        Excuse me, miss… 🌹  
+        I've been waiting to ask you this for so long...  
+        Will you go on a date with me? 💕
+    </p>
+
+    <div>
+        <button id="yesBtn">Yes 💖</button>
+        <button id="noBtn">No 🙈</button>
+    </div>
+</div>
+
+<!-- Celebration Page -->
+<div id="celebrationPage">
+    <h1>
+        🌸 You just saved a 24 year kid by accepting his date offer 💖<br><br>
+        He is now at your service and ready to make your day special ✨
+    </h1>
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const text = document.getElementById("proposalText");
+const mainCard = document.getElementById("mainCard");
+const celebrationPage = document.getElementById("celebrationPage");
+
+let step = 0;
+
+const proposals = [
+"Okay wait… maybe I didn't say it right 😅💖<br><br> Saheli, will you please go on a cute little date with me? 🌹",
+"Still no? 🥺 You're making this hard… but I won’t give up! How about coffee + long walk + my full attention? ☕💕",
+"Alright… last serious try 😌💖<br><br> I promise laughs, smiles, and a day you won’t forget… will you go out with me? 🌸",
+"Okay now I’m officially nervous 😳💘<br><br> But I really really want this… please say yes? 💖",
+"This is my final form 😤💞<br><br> Saheli, I’d genuinely love to take you out and make you smile… will you give me a chance? 🌹✨"
+];
+
+/* Move button */
+function moveNo() {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+/* On NO click */
+noBtn.addEventListener("mouseover", moveNo);
+
+noBtn.addEventListener("click", () => {
+    moveNo();
+    if (step < proposals.length) {
+        text.innerHTML = proposals[step];
+        step++;
+    }
+});
+
+/* YES click */
+yesBtn.addEventListener("click", () => {
+    mainCard.style.display = "none";
+    celebrationPage.style.display = "flex";
+    startFlowers();
+});
+
+/* Flower animation */
+function startFlowers() {
+    setInterval(() => {
+        const flower = document.createElement("div");
+        flower.classList.add("flower");
+        flower.innerHTML = "🌸";
+        flower.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(flower);
+
+        setTimeout(() => {
+            flower.remove();
+        }, 5000);
+    }, 200);
+}
+</script>
+
+</body>
+</html>        <br><br>
+        So tell me,
         <b>Will you go on a date with me? 💕</b>
     </p>
 
@@ -117,7 +186,7 @@ button {
 
     <div id="celebration">
         🎉 YAYYY!!! 💖<br>
-        Get ready for the best date ever 🌹✨
+        I love you babe🌹✨
     </div>
 </div>
 
