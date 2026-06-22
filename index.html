@@ -8,35 +8,42 @@
 <style>
 body {
     margin: 0;
-    height: 100vh;
-    overflow: hidden;
     font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
 }
 
 /* Card */
 .card {
-    text-align: center;
-    background: rgba(255,255,255,0.95);
-    padding: 40px;
+    background: white;
+    padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-    max-width: 520px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-h1 { color: #ff4d6d; }
+h1 {
+    color: #ff4d6d;
+}
 
 p {
-    font-size: 18px;
+    font-size: 16px;
     color: #444;
+    line-height: 1.5;
 }
 
 /* Buttons */
+.buttons {
+    margin-top: 20px;
+}
+
 button {
-    padding: 12px 25px;
+    padding: 12px 20px;
     margin: 10px;
     border: none;
     border-radius: 25px;
@@ -51,7 +58,6 @@ button {
 
 #noBtn {
     background: #ccc;
-    position: absolute;
 }
 
 /* Celebration Page */
@@ -65,14 +71,12 @@ button {
     background: linear-gradient(135deg, #ffdde1, #ee9ca7);
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     text-align: center;
+    padding: 20px;
 }
 
 #celebrationPage h1 {
-    font-size: 28px;
     color: #ff4d6d;
-    padding: 20px;
 }
 
 /* Flowers */
@@ -100,13 +104,12 @@ button {
         Will you go on a date with me? 💕
     </p>
 
-    <div>
+    <div class="buttons">
         <button id="yesBtn">Yes 💖</button>
         <button id="noBtn">No 🙈</button>
     </div>
 </div>
 
-<!-- Celebration Page -->
 <div id="celebrationPage">
     <h1>
         🌸 You just saved a 24 year kid by accepting his date offer 💖<br><br>
@@ -124,33 +127,20 @@ const celebrationPage = document.getElementById("celebrationPage");
 let step = 0;
 
 const proposals = [
-"Okay wait… maybe I didn't say it right 😅💖<br><br> Saheli, will you please go on a cute little date with me? 🌹",
-"Still no? 🥺 You're making this hard… but I won’t give up! How about coffee + long walk + my full attention? ☕💕",
-"Alright… last serious try 😌💖<br><br> I promise laughs, smiles, and a day you won’t forget… will you go out with me? 🌸",
-"Okay now I’m officially nervous 😳💘<br><br> But I really really want this… please say yes? 💖",
-"This is my final form 😤💞<br><br> Saheli, I’d genuinely love to take you out and make you smile… will you give me a chance? 🌹✨"
+"Okay maybe I was too formal 😅💖<br><br> Saheli, will you go on a cute little date with me? 🌹",
+"Still no? 🥺<br><br> What if I promise coffee, laughs, and a really nice time? ☕💕",
+"Alright… one more try 😌💖<br><br> I really want to take you out and make you smile… will you? 🌸",
+"Okay now I’m nervous 😳💘<br><br> Please say yes? 💖",
+"This is my final try 🥹💞<br><br> I’d genuinely love to spend time with you… will you give me a chance? 🌹✨"
 ];
 
-/* Move button */
-function moveNo() {
-    const x = Math.random() * (window.innerWidth - 100);
-    const y = Math.random() * (window.innerHeight - 50);
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-}
-
-/* On NO click */
-noBtn.addEventListener("mouseover", moveNo);
-
 noBtn.addEventListener("click", () => {
-    moveNo();
     if (step < proposals.length) {
         text.innerHTML = proposals[step];
         step++;
     }
 });
 
-/* YES click */
 yesBtn.addEventListener("click", () => {
     mainCard.style.display = "none";
     celebrationPage.style.display = "flex";
@@ -171,63 +161,6 @@ function startFlowers() {
         }, 5000);
     }, 200);
 }
-</script>
-
-</body>
-</html>        <br><br>
-        So tell me,
-        <b>Will you go on a date with me? 💕</b>
-    </p>
-
-    <div>
-        <button id="yesBtn">Yes 💖</button>
-        <button id="noBtn">No 🙈</button>
-    </div>
-
-    <div id="celebration">
-        🎉 YAYYY!!! 💖<br>
-        I love you babe🌹✨
-    </div>
-</div>
-
-<script>
-const noBtn = document.getElementById("noBtn");
-const yesBtn = document.getElementById("yesBtn");
-const celebration = document.getElementById("celebration");
-const music = document.getElementById("music");
-
-/* Move NO button */
-function moveNo() {
-    const x = Math.random() * (window.innerWidth - 100);
-    const y = Math.random() * (window.innerHeight - 50);
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-}
-
-noBtn.addEventListener("mouseover", moveNo);
-noBtn.addEventListener("click", moveNo);
-
-/* YES click */
-yesBtn.addEventListener("click", () => {
-    celebration.style.display = "block";
-    music.play();
-});
-
-/* Floating hearts generator */
-function createHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = "💖";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 20 + 10 + "px";
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 6000);
-}
-
-setInterval(createHeart, 300);
 </script>
 
 </body>
