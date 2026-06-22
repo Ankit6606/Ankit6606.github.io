@@ -7,105 +7,171 @@
 
 <style>
 body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  overflow: hidden;
 }
 
-/* Card */
-.card {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+/* Main Page */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
 }
 
-h1 { color: #ff4d6d; }
-
-p {
-    font-size: 16px;
-    color: #444;
-    line-height: 1.5;
+h1 {
+  font-size: 22px;
+  color: #fff;
 }
 
-/* Buttons */
-.buttons { margin-top: 20px; }
+.buttons {
+  margin-top: 20px;
+}
 
 button {
-    padding: 12px 20px;
-    margin: 10px;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    cursor: pointer;
+  padding: 12px 25px;
+  margin: 10px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 #yesBtn {
-    background: #ff4d6d;
-    color: white;
+  background: #ff4d6d;
+  color: white;
 }
 
 #noBtn {
-    background: #ccc;
+  background: #444;
+  color: white;
+  position: absolute;
 }
 
-/* Celebration Page */
-#celebrationPage {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
+/* Final Page */
+#finalPage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-#celebrationPage h1 {
-    color: #ff4d6d;
-    font-size: 20px; /* smaller for mobile */
-    line-height: 1.6;
-    max-width: 90%;
+.final-content h1 {
+  font-size: clamp(18px, 5vw, 28px);
+  line-height: 1.4;
+  color: #fff;
+  max-width: 90%;
 }
 
-/* Flowers */
+/* Flowers Animation */
 .flower {
-    position: absolute;
-    font-size: 24px;
-    animation: fall 5s linear infinite;
+  position: absolute;
+  top: -50px;
+  font-size: 24px;
+  animation: fall linear infinite;
 }
 
 @keyframes fall {
-    0% { transform: translateY(-10vh); }
-    100% { transform: translateY(110vh); }
+  to {
+    transform: translateY(110vh);
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="card" id="mainCard">
-    <h1>Hey Saheli 💖</h1>
+<div class="container" id="mainPage">
+  <h1 id="text">
+    Excuse me, miss... I've been waiting for this moment 💖<br><br>
+    It would truly be an honor to take my ultimate diva out for a date 🌹<br><br>
+    So Saheli... will you go on a date with me? 🥺
+  </h1>
 
-    <p id="proposalText">
-        Excuse me, miss… 🌹  
-        I've been waiting to ask you this for so long...  
-        Will you go on a date with me? 💕
-    </p>
+  <div class="buttons">
+    <button id="yesBtn">Yes 💖</button>
+    <button id="noBtn">No 😢</button>
+  </div>
+</div>
 
-    <div class="buttons">
-        <button id="yesBtn">Yes 💖</button>
-        <button id="noBtn">No 🙈</button>
+<div id="finalPage">
+  <div class="final-content">
+    <h1>
+      You just saved a 24 year kid by accepting his date offer 💖<br><br>
+      He is now at your service and ready to make your day special 🌸
+    </h1>
+  </div>
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const text = document.getElementById("text");
+
+let messages = [
+  "Are you sure? I promise I'll bring chocolates 🍫🥺",
+  "What if I plan the cutest date ever just for you? 💕",
+  "One coffee date… and I’ll make you smile the whole time ☕💖",
+  "I might not be perfect, but I can make your day perfect 🌸",
+  "Just one chance… I’ll make it unforgettable 😌✨",
+  "I’ll treat you like the queen you are 👑💖",
+  "Please say yes… my heart is already planning our date 💓",
+  "Okay last try… dinner, laughter, and me being all yours? 🍽️💞"
+];
+
+let index = 0;
+
+/* Move No Button */
+noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("click", moveButton);
+
+function moveButton() {
+  let x = Math.random() * (window.innerWidth - 100);
+  let y = Math.random() * (window.innerHeight - 50);
+
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+
+  if (index < messages.length) {
+    text.innerHTML = messages[index];
+    index++;
+  }
+}
+
+/* Yes Button */
+document.getElementById("yesBtn").onclick = function() {
+  document.getElementById("mainPage").style.display = "none";
+  document.getElementById("finalPage").style.display = "flex";
+  startFlowers();
+};
+
+/* Flower Animation */
+function startFlowers() {
+  for (let i = 0; i < 20; i++) {
+    let flower = document.createElement("div");
+    flower.classList.add("flower");
+    flower.innerHTML = "🌸";
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.animationDuration = (3 + Math.random() * 5) + "s";
+    document.body.appendChild(flower);
+  }
+}
+</script>
+
+</body>
+</html>        <button id="noBtn">No 🙈</button>
     </div>
 </div>
 
