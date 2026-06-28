@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>I'm Sorry Saheli 💔</title>
-
-<style>
+<title>I'm Sorry Saheli 💔</title><style>
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -27,25 +24,35 @@ h2 {
   padding: 0 20px;
 }
 
+/* Button container to avoid overlap */
+#btnContainer {
+  position: relative;
+  width: 260px;
+  height: 120px;
+}
+
+/* Buttons */
 button {
-  padding: 12px 25px;
-  margin: 10px;
+  padding: 12px 20px;
   border: none;
   border-radius: 25px;
   font-size: 16px;
   cursor: pointer;
-  position: relative;
 }
 
-button:first-of-type {
+#yesBtn {
   background-color: #ff4d6d;
   color: white;
+  position: relative;
+  z-index: 1;
 }
 
 #noBtn {
   background-color: #444;
   color: white;
   position: absolute;
+  top: 60px;
+  left: 120px;
 }
 
 /* Final Page */
@@ -82,21 +89,12 @@ button:first-of-type {
     opacity: 0;
   }
 }
-</style>
-</head>
-
-<body>
-
-<!-- MAIN PAGE -->
-<div id="mainPage">
-  <h2 id="question">Saheli... I am really sorry for my mistake 💔</h2>
-
-  <button id="yesBtn">Forgive Me ❤️</button>
-  <button id="noBtn">Still No 😔</button>
-</div>
-
-<!-- FINAL PAGE -->
-<div id="finalPage">
+</style></head><body><!-- MAIN PAGE --><div id="mainPage">
+  <h2 id="question">Saheli... I am really sorry for my mistake 💔</h2>  <div id="btnContainer">
+    <button id="yesBtn">Forgive Me ❤️</button>
+    <button id="noBtn">Still No 😔</button>
+  </div>
+</div><!-- FINAL PAGE --><div id="finalPage">
   <div class="final-content">
     <h1>
       Thank you for giving me one last chance 💖<br><br>
@@ -104,8 +102,63 @@ button:first-of-type {
       and never give you a reason to feel hurt again 🌸
     </h1>
   </div>
-</div>
+</div><script>
+let step = 0;
 
+const messages = [
+  "I know I hurt you… and I truly regret it 😔",
+  "You mean a lot to me, Saheli… more than I showed 💔",
+  "I didn’t realize my mistake then… but I do now 🥺",
+  "Please give me one chance to fix everything 🙏",
+  "I promise I'll be better… for you 💖",
+  "I miss us… can we try again? 🌸",
+  "Just one last chance… I won’t let you down 😔💞"
+];
+
+const question = document.getElementById("question");
+const noBtn = document.getElementById("noBtn");
+const container = document.getElementById("btnContainer");
+
+/* Move No button inside container */
+function moveButton() {
+  let x = Math.random() * (container.clientWidth - 100);
+  let y = Math.random() * (container.clientHeight - 50);
+
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+
+  if (step < messages.length) {
+    question.innerText = messages[step];
+    step++;
+  }
+}
+
+noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("click", moveButton);
+
+/* Yes button */
+document.getElementById("yesBtn").onclick = function() {
+  document.getElementById("mainPage").style.display = "none";
+  document.getElementById("finalPage").style.display = "flex";
+  startFlowers();
+};
+
+/* Flower animation */
+function startFlowers() {
+  setInterval(() => {
+    let flower = document.createElement("div");
+    flower.classList.add("flower");
+    flower.innerHTML = "🌸";
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+    document.body.appendChild(flower);
+
+    setTimeout(() => flower.remove(), 5000);
+  }, 200);
+}
+</script></body>
+</html>
 <script>
 let step = 0;
 
