@@ -1,8 +1,11 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Date Proposal 💖</title><style>
+<title>I'm Sorry Saheli 💔</title>
+
+<style>
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -31,10 +34,7 @@ button {
   border-radius: 25px;
   font-size: 16px;
   cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.9;
+  position: relative;
 }
 
 button:first-of-type {
@@ -45,6 +45,7 @@ button:first-of-type {
 #noBtn {
   background-color: #444;
   color: white;
+  position: absolute;
 }
 
 /* Final Page */
@@ -54,106 +55,74 @@ button:first-of-type {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
   display: none;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
   padding: 20px;
-  box-sizing: border-box;
 }
 
 .final-content h1 {
-  font-size: clamp(18px, 5vw, 28px);
-  line-height: 1.4;
+  font-size: clamp(18px, 5vw, 26px);
   color: white;
-  max-width: 90%;
+  line-height: 1.5;
 }
 
-/* Hide any accidental buttons in final page */
-#finalPage button {
-  display: none;
+/* Flower animation */
+.flower {
+  position: fixed;
+  top: -10px;
+  font-size: 20px;
+  animation: fall linear forwards;
 }
 
-/* Animation */
-.final-content {
-  animation: fadeIn 2s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
-</style></head><body><!-- MAIN PAGE --><div id="mainPage">
-  <h2 id="question">Will you go on a coffee date with me? ☕</h2><button onclick="handleYes()">Yes ❤️</button>
-<button onclick="handleNo()" id="noBtn">No 💔</button>
-
-</div><!-- FINAL PAGE --><div id="finalPage">
-  <div class="final-content">
-    <h1>
-      You just saved a 24 year kid by accepting his date offer 💖<br><br>
-      He is now at your service and ready to make your day special 🌸
-    </h1>
-  </div>
-</div><script>
-let step = 0;
-
-const questions = [
-  "Will you go on a coffee date with me? ☕",
-  "What about a dinner date? 🍽️",
-  "Movie night together? 🎬",
-  "Long drive with music? 🚗🎶",
-  "Ice cream date? 🍦",
-  "Sunset walk together? 🌇",
-  "Just one cute date? 🥺❤️",
-  "I promise I'll make you smile… will you go out with me? 💕",
-  "Last chance… will you make me the happiest? 💖"
-];
-
-function handleNo() {
-  if (step < questions.length - 1) {
-    step++;
-    document.getElementById("question").innerText = questions[step];
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
   }
 }
+</style>
+</head>
 
-function handleYes() {
-  document.getElementById("mainPage").style.display = "none";
-  document.getElementById("finalPage").style.display = "flex";
-}
-</script></body>
-</html></div>
+<body>
 
+<!-- MAIN PAGE -->
+<div id="mainPage">
+  <h2 id="question">Saheli... I am really sorry for my mistake 💔</h2>
+
+  <button id="yesBtn">Forgive Me ❤️</button>
+  <button id="noBtn">Still No 😔</button>
+</div>
+
+<!-- FINAL PAGE -->
 <div id="finalPage">
   <div class="final-content">
     <h1>
-      You just saved a 24 year kid by accepting his date offer 💖<br><br>
-      He is now at your service and ready to make your day special 🌸
+      Thank you for giving me one last chance 💖<br><br>
+      I promise I’ll make things right this time…<br>
+      and never give you a reason to feel hurt again 🌸
     </h1>
   </div>
 </div>
 
 <script>
-const noBtn = document.getElementById("noBtn");
-const text = document.getElementById("text");
+let step = 0;
 
-let messages = [
-  "Are you sure? I promise I'll bring chocolates 🍫🥺",
-  "What if I plan the cutest date ever just for you? 💕",
-  "One coffee date… and I’ll make you smile the whole time ☕💖",
-  "I might not be perfect, but I can make your day perfect 🌸",
-  "Just one chance… I’ll make it unforgettable 😌✨",
-  "I’ll treat you like the queen you are 👑💖",
-  "Please say yes… my heart is already planning our date 💓",
-  "Okay last try… dinner, laughter, and me being all yours? 🍽️💞"
+const messages = [
+  "I know I hurt you… and I truly regret it 😔",
+  "You mean a lot to me, Saheli… more than I showed 💔",
+  "I didn’t realize my mistake then… but I do now 🥺",
+  "Please give me one chance to fix everything 🙏",
+  "I promise I'll be better… for you 💖",
+  "I miss u… can u forgive me? 🌸",
+  "Just one last chance… I won’t let you down 😔💞"
 ];
 
-let index = 0;
+const question = document.getElementById("question");
+const noBtn = document.getElementById("noBtn");
 
-/* Move No Button */
-noBtn.addEventListener("mouseover", moveButton);
-noBtn.addEventListener("click", moveButton);
-
+/* No button moves */
 function moveButton() {
   let x = Math.random() * (window.innerWidth - 100);
   let y = Math.random() * (window.innerHeight - 50);
@@ -161,90 +130,35 @@ function moveButton() {
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
 
-  if (index < messages.length) {
-    text.innerHTML = messages[index];
-    index++;
+  if (step < messages.length) {
+    question.innerText = messages[step];
+    step++;
   }
 }
 
-/* Yes Button */
+noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("click", moveButton);
+
+/* Yes button */
 document.getElementById("yesBtn").onclick = function() {
   document.getElementById("mainPage").style.display = "none";
   document.getElementById("finalPage").style.display = "flex";
   startFlowers();
 };
 
-/* Flower Animation */
+/* Flower animation */
 function startFlowers() {
-  for (let i = 0; i < 20; i++) {
+  setInterval(() => {
     let flower = document.createElement("div");
     flower.classList.add("flower");
     flower.innerHTML = "🌸";
     flower.style.left = Math.random() * 100 + "vw";
-    flower.style.animationDuration = (3 + Math.random() * 5) + "s";
+    flower.style.animationDuration = (3 + Math.random() * 3) + "s";
+
     document.body.appendChild(flower);
-  }
-}
-</script>
 
-</body>
-</html>        <button id="noBtn">No 🙈</button>
-    </div>
-</div>
-
-<div id="celebrationPage">
-    <h1>
-        🌸 You just saved a 24 year kid by accepting his date offer 💖<br><br>
-        He is now at your service and ready to make your day special ✨
-    </h1>
-</div>
-
-<script>
-const noBtn = document.getElementById("noBtn");
-const yesBtn = document.getElementById("yesBtn");
-const text = document.getElementById("proposalText");
-const mainCard = document.getElementById("mainCard");
-const celebrationPage = document.getElementById("celebrationPage");
-
-let step = 0;
-
-const proposals = [
-"Okay maybe I was too formal 😅💖<br><br> Saheli, will you go on a cute little date with me? 🌹",
-"Still no? 🥺<br><br> What if I promise coffee, laughs, and a really nice time? ☕💕",
-"How about this… 🍕<br><br> Pizza + long walk + me trying to impress you 😏💖",
-"Movie night? 🎬<br><br> I’ll bring popcorn and full attention just for you 💕",
-"Coffee + sunset? ☕🌇<br><br> Just you, me, and a beautiful vibe 💖",
-"Okay okay… final serious offer 😌💞<br><br> A day full of smiles, jokes, and good memories… with me? 🌸",
-"Now I’m nervous 😳💘<br><br> But I really want this… please say yes? 💖",
-"This is my FINAL FINAL try 🥹💞<br><br> I’d genuinely love to spend time with you… will you give me a chance? 🌹✨"
-];
-
-noBtn.addEventListener("click", () => {
-    if (step < proposals.length) {
-        text.innerHTML = proposals[step];
-        step++;
-    }
-});
-
-yesBtn.addEventListener("click", () => {
-    mainCard.style.display = "none";
-    celebrationPage.style.display = "flex";
-    startFlowers();
-});
-
-/* Flower animation */
-function startFlowers() {
-    setInterval(() => {
-        const flower = document.createElement("div");
-        flower.classList.add("flower");
-        flower.innerHTML = "🌸";
-        flower.style.left = Math.random() * 100 + "vw";
-        document.body.appendChild(flower);
-
-        setTimeout(() => {
-            flower.remove();
-        }, 5000);
-    }, 200);
+    setTimeout(() => flower.remove(), 5000);
+  }, 200);
 }
 </script>
 
