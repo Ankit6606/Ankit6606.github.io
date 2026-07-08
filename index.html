@@ -1,22 +1,26 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>I'm Sorry Saheli 💔</title><style>
+<title>I'm Sorry Saheli 🍫💔</title>
+
+<style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   text-align: center;
 }
 
-/* Main Page */
+/* MAIN PAGE */
 #mainPage {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  background: linear-gradient(135deg, #5a2d0c, #a0522d, #d2691e);
+  color: #fff8e7;
 }
 
 h2 {
@@ -24,7 +28,7 @@ h2 {
   padding: 0 20px;
 }
 
-/* Button container to avoid overlap */
+/* Button container */
 #btnContainer {
   position: relative;
   width: 260px;
@@ -33,29 +37,35 @@ h2 {
 
 /* Buttons */
 button {
-  padding: 12px 20px;
+  padding: 12px 22px;
   border: none;
-  border-radius: 25px;
+  border-radius: 30px;
   font-size: 16px;
   cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
+/* YES BUTTON (chocolate cream style) */
 #yesBtn {
-  background-color: #ff4d6d;
-  color: white;
-  position: relative;
-  z-index: 1;
+  background: linear-gradient(145deg, #8b4513, #d2691e);
+  color: #fff;
 }
 
+#yesBtn:hover {
+  transform: scale(1.1);
+}
+
+/* NO BUTTON (dark chocolate) */
 #noBtn {
-  background-color: #444;
-  color: white;
+  background: #3e2723;
+  color: #fff;
   position: absolute;
   top: 60px;
   left: 120px;
 }
 
-/* Final Page */
+/* FINAL PAGE */
 #finalPage {
   position: fixed;
   top: 0;
@@ -65,17 +75,17 @@ button {
   display: none;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  background: linear-gradient(135deg, #3e1f0d, #8b4513, #c68c53);
   padding: 20px;
 }
 
 .final-content h1 {
   font-size: clamp(18px, 5vw, 26px);
-  color: white;
+  color: #fff8e7;
   line-height: 1.5;
 }
 
-/* Flower animation */
+/* Chocolate falling animation */
 .flower {
   position: fixed;
   top: -10px;
@@ -89,28 +99,41 @@ button {
     opacity: 0;
   }
 }
-</style></head><body><!-- MAIN PAGE --><div id="mainPage">
-  <h2 id="question">Saheli... I am really sorry for my mistake 💔</h2>  <div id="btnContainer">
-    <button id="yesBtn">Forgive Me ❤️</button>
+</style>
+</head>
+
+<body>
+
+<!-- MAIN PAGE -->
+<div id="mainPage">
+  <h2 id="question">Saheli... I am really sorry for my mistake 🍫💔</h2>
+
+  <div id="btnContainer">
+    <button id="yesBtn">Forgive Me 🍫❤️</button>
     <button id="noBtn">Still No 😔</button>
   </div>
-</div><!-- FINAL PAGE --><div id="finalPage">
+</div>
+
+<!-- FINAL PAGE -->
+<div id="finalPage">
   <div class="final-content">
     <h1>
-      Thank you for forgiving me 💖<br><br>
-      I promise I’ll shower chocolates on u this time…<br>
-      and never let you feel like this 🌸
+      Thank you for forgiving me 💖🍫<br><br>
+      This time I’ll shower you with chocolates… 🍬🍫<br>
+      and never let you feel sad again 🌸
     </h1>
   </div>
-</div><script>
+</div>
+
+<script>
 let step = 0;
 
 const messages = [
-  "You just don't deserve a chocolate, you deserve the whole chocolate factory",
+  "You don’t just deserve chocolates… you deserve a whole chocolate factory 🍫",
   "You mean a lot to me, Saheli… more than I showed 💔",
-  "I really care for u baby, but I am scared sometimes as well🥺",
-  "Not just princess, u are a queen in my heart",
-  "I promise I'll be better… for you 💖"
+  "I really care for u baby, even if I mess up sometimes 🥺",
+  "Not just princess… u are my chocolate queen 👑🍫",
+  "I promise I’ll be better… sweeter… for you 💖"
 ];
 
 const question = document.getElementById("question");
@@ -138,75 +161,21 @@ noBtn.addEventListener("click", moveButton);
 document.getElementById("yesBtn").onclick = function() {
   document.getElementById("mainPage").style.display = "none";
   document.getElementById("finalPage").style.display = "flex";
-  startFlowers();
+  startChocolates();
 };
 
-/* Flower animation */
-function startFlowers() {
+/* Chocolate falling animation */
+function startChocolates() {
   setInterval(() => {
-    let flower = document.createElement("div");
-    flower.classList.add("flower");
-    flower.innerHTML = "🌸";
-    flower.style.left = Math.random() * 100 + "vw";
-    flower.style.animationDuration = (3 + Math.random() * 3) + "s";
+    let choco = document.createElement("div");
+    choco.classList.add("flower");
+    choco.innerHTML = "🍫";
+    choco.style.left = Math.random() * 100 + "vw";
+    choco.style.animationDuration = (3 + Math.random() * 3) + "s";
 
-    document.body.appendChild(flower);
+    document.body.appendChild(choco);
 
-    setTimeout(() => flower.remove(), 5000);
-  }, 200);
-}
-</script></body>
-</html>
-<script>
-let step = 0;
-
-const messages = [
-  "You just don't deserve a chocolate, you deserve the whole chocolate factory",
-  "You mean a lot to me, Saheli… more than I showed 💔",
-  "I really care for u baby, but I am scared sometimes as well🥺",
-  "Not just princess, u are a queen in my heart",
-  "I promise I'll be better… for you 💖"
-];
-
-const question = document.getElementById("question");
-const noBtn = document.getElementById("noBtn");
-
-/* No button moves */
-function moveButton() {
-  let x = Math.random() * (window.innerWidth - 100);
-  let y = Math.random() * (window.innerHeight - 50);
-
-  noBtn.style.left = x + "px";
-  noBtn.style.top = y + "px";
-
-  if (step < messages.length) {
-    question.innerText = messages[step];
-    step++;
-  }
-}
-
-noBtn.addEventListener("mouseover", moveButton);
-noBtn.addEventListener("click", moveButton);
-
-/* Yes button */
-document.getElementById("yesBtn").onclick = function() {
-  document.getElementById("mainPage").style.display = "none";
-  document.getElementById("finalPage").style.display = "flex";
-  startFlowers();
-};
-
-/* Flower animation */
-function startFlowers() {
-  setInterval(() => {
-    let flower = document.createElement("div");
-    flower.classList.add("flower");
-    flower.innerHTML = "🌸";
-    flower.style.left = Math.random() * 100 + "vw";
-    flower.style.animationDuration = (3 + Math.random() * 3) + "s";
-
-    document.body.appendChild(flower);
-
-    setTimeout(() => flower.remove(), 5000);
+    setTimeout(() => choco.remove(), 5000);
   }, 200);
 }
 </script>
